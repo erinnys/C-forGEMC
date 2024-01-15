@@ -11,7 +11,7 @@ double b = 1;
 double els = 1;
 double sig = 1;
 vector<int> atomnu = {10, 10};
-vector<double> lengbox = {10, 10};
+vector<double> lengbox = {10.0, 10.0};
 
 double ljenergy(vector<double> atom1, vector<double> atom2)
 {
@@ -29,10 +29,9 @@ double ljenergy(vector<double> atom1, vector<double> atom2)
     return energy;
 };
 
-vector<vector<double>> ranmove(vector<vector<double>> ranmovecon,int step){
-
+vector<vector<double>> ranmove(vector<vector<double>> ranmovecon, int step){
+    return {{0.0}};
 };
-
 
 
 class state
@@ -69,25 +68,28 @@ public:
                 tote = tote + ljenergy(con[i], dis);
             };
         };
+        return tote;
     };
 
 private:
     vector<vector<double>> config1 = {};
     vector<vector<double>> config2 = {};
 };
-int main(){
+int main()
+{
     char ch;
     ifstream initfile("initfile.txt");
-    if (initfile.is_open()){
+    if (initfile.is_open())
+    {
         while (!initfile.eof())
         {
             initfile.get(ch);
-            cout<<ch<<endl;
-
-        }
-        
+            cout << ch << endl;
+        };
     }
-    else{
-        cerr<<"test"<<endl;
+    else
+    {
+        cerr << "test" << endl;
     }
+    return 0;
 };
